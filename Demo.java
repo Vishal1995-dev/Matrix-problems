@@ -8,17 +8,20 @@ class Matrix
 		int temp=0;
 		int i=0;
 		int j=0;
-		while(i<arr.length-1)
+		while(i<arr.length)
 		{
 			j=0;
 			while(j<arr[i].length)
 			{
-				temp = arr[i][j];
-				arr[i][j] = arr[i+1][j];
-				arr[i+1][j]=temp;
+				if(i<j)
+				{
+					temp = arr[i][j];
+					arr[i][j] = arr[j][i];
+					arr[j][i]=temp;
+				}
 				j++;
 			}
-			i+=2;
+			i++;
 		}
 		return arr;
 	}
